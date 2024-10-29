@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="stylesFlags.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flag Quiz - Hard</title>
+    </head>
+    <body>
+        <div class="container">
+            <div id="title-container">
+                <div id="progress-counter">0/0 | 100%</div>
+                <button id="give-up-button">Give Up?</button>
+                <div id="stopwatch">00:00</div>
+            </div>
+            <div id="flag-container">
+                <img id="flag-image" src="" alt="Flag" />
+            </div>
+            <div id="answer-container">
+                <input
+                    type="text"
+                    id="country-guess"
+                    value=""
+                    spellcheck="false" />
+            </div>
+            <button id="submit-button">SUBMIT</button>
+            <p id="message"></p>
+            <button id="skip-button">SKIP</button>
+        </div>
+
+        <!-- Win Modal -->
+        <div id="win-modal" class="modal">
+            <div class="modal-content">
+                <h2>Well done!</h2>
+                <div class="modal-info">
+                    <div class="modal-info-item">
+                        <p>Score</p>
+                        <span id="win-score"></span>
+                        <span id="win-percentage-sign">%</span>
+                    </div>
+                    <div class="modal-info-item">
+                        <p>Time</p>
+                        <p id="win-time"></p>
+                    </div>
+                </div>
+                <span class="modal-info-title thin-font">318 Countries, Regions and Territories Flags</span>
+                <p>
+                    Date
+                    <p id="win-date"></p>
+                </p>
+                <button id="restart-win-button" class="restart-button">
+                    Play Again
+                </button>
+            </div>
+        </div>
+
+        <!-- Lose Modal -->
+        <div id="lose-modal" class="modal">
+            <div class="modal-content">
+                <h2>Game Over!</h2>
+                <div class="modal-info">
+                    <div class="modal-info-item">
+                        <p>Score</p>
+                        <span id="lose-score"></span>
+                    </div>
+                    <div class="modal-info-item">
+                        <p>Time</p>
+                        <p id="lose-time"></p>
+                    </div>
+                </div>
+                <p>
+                    <p>Date</p>
+                    <p id="lose-date"></p>
+                </p>
+                <button id="restart-lose-button" class="restart-button">
+                    Try Again
+                </button>
+            </div>
+        </div>
+
+        <!-- Audio Elements -->
+        <audio id="audio-correct" src="audio/correct.mp3"></audio>
+        <audio id="audio-incorrect" src="audio/incorrect.mp3"></audio>
+        <audio id="audio-give_up" src="audio/give_up.mp3"></audio>
+        <audio id="audio-win" src="audio/win.mp3"></audio>
+
+        <script src="scriptFlags.js"></script>
+    </body>
+</html>

@@ -1,0 +1,348 @@
+@import url("https://fonts.cdnfonts.com/css/neo-sans-pro");
+@font-face {
+  font-family: "NeoSans";
+  src: url("font/mediumitalic.otf") format("truetype");
+}
+
+body {
+  font-family: "NeoSans";
+  margin: 0;
+  padding: 20px;
+  background-color: #ffffff; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Set minimum height for full viewport */
+  cursor: pointer; /* Change cursor shape */
+  overflow: hidden; /* Hide scroll bars */
+}
+
+.container {
+  position: relative; /* Added to make the absolute positioning of the button work */
+  background-color: #ededed;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+#title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#progress-counter,
+#stopwatch {
+  font-family: "Neo Sans Pro", sans-serif;
+  font-size: 1.2em;
+}
+
+#give-up-button {
+  font-family: "Neo Sans Pro", sans-serif;
+  position: absolute; /* Absolute position */
+  bottom: 20px; /* Distance from the bottom of the container */
+  right: 20px; /* Distance from the right of the container */
+  padding: 10px 15px; /* Adjusted padding */
+  background-color: #cacaca; /* Button background color */
+  color: #2c2c2c; /* White text color */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 10px; /* Font size */
+  transition: background-color 0.2s ease-in-out; /* Hover effect transition */
+  font-weight: 600; /* Bold text */
+}
+
+#give-up-button:hover {
+  background-color: #bbbbbb; /* Darken background on hover */
+  transform: scale(1.05); /* Enlarge on hover */
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
+}
+
+#give-up-button:active {
+  transform: scale(0.95); /* Shrink on click */
+  transition: transform 0.2s ease-out;
+}
+
+#give-up-button:not(:hover):not(:active) {
+  transform: scale(1); /* Scale down when not hovering or clicking */
+  transition: transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+#flag-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#flag-image {
+  height: 200px; /* Set uniform height */
+  width: auto; /* Let the width adjust based on the height */
+  border-radius: 5px; /* Add rounded corners to flag image */
+  color: #333333;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Add subtle shadow */
+}
+
+/* Remove shadow when Nepal is shown */
+#flag-image.no-shadow {
+  box-shadow: none;
+}
+
+#answer-container {
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+
+#country-guess {
+  font-family: "Neo Sans Pro", sans-serif;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 280px; /* Adjust input field width */
+  border: none; /* Remove border */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add slight shadow */
+  border-radius: 5px; /* Add rounded corners to input field */
+  font-size: 16px; /* Adjust input field font size */
+  outline: none; /* Remove outline when focused */
+}
+
+#submit-button {
+  font-family: "NeoSans";
+  padding: 10px 122px;
+  background-color: #3c3d44; /* Blue submit button */
+  color: #ffffff; /* White text color */
+  border: none;
+  cursor: pointer;
+  border-radius: 25px; /* Add rounded corners to button */
+  font-size: 16px; /* Adjust button font size */
+  transition: background-color 0.2s ease-in-out; /* Add transition for hover effect */
+  font-weight: 600; /* Set highest font weight */
+}
+
+#submit-button:hover {
+  background-color: #35363c; /* Darken background on hover */
+  transform: scale(1.05); /* Enlarge slightly on hover */
+  transition: background-color 0.2s ease-out, transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+#submit-button:active {
+  transform: scale(0.95); /* Shrink on click */
+  transition: transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+#submit-button:not(:hover):not(:active) {
+  transform: scale(1); /* Scale down when not hovering or clicking */
+  transition: transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+#message {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333333; /* Dark message text color */
+}
+
+#skip-button {
+  font-family: "NeoSans";
+  padding: 10px 60px; /* Adjusted padding */
+  margin-top: 20px; /* Adjusted top margin */
+  background-color: #35363c; /* Blue skip button */
+  color: #ffffff; /* White text color */
+  border: none;
+  cursor: pointer;
+  border-radius: 25px; /* Add rounded corners to button */
+  font-size: 16px; /* Adjust button font size */
+  transition: background-color 0.2s ease-in-out; /* Add transition for hover effect */
+  font-weight: 600; /* Set highest font weight */
+}
+
+#skip-button:hover {
+  background-color: #303136; /* Darken background on hover */
+  transform: scale(1.05); /* Enlarge slightly on hover */
+  transition: background-color 0.2s ease-out, transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+#skip-button:active {
+  /* CSS for the win modal percentage sign */
+  #win-percentage-sign {
+    font-size: 2.2em; /* Match font size with score */
+    font-weight: bold; /* Bold font weight */
+    color: #333333; /* Dark text color */
+    margin-left: 5px; /* Add spacing to the left */
+  }
+  transform: scale(0.95); /* Shrink on click */
+  transition: transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+#skip-button:not(:hover):not(:active) {
+  transform: scale(1); /* Scale down when not hovering or clicking */
+  transition: transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+#win-date,
+#lose-date {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.5em; /* Increase font size for the date */
+  margin-top: -10px; /* Adjust top margin */
+}
+
+/* CSS for the win and lose modal */
+#win-modal,
+#lose-modal {
+  cursor: default; /* Default cursor */
+  font-family: "Neo Sans Pro", sans-serif;
+  display: none; /* Hide the modal by default */
+  position: fixed;
+  left: 50%; /* Position the modal horizontally */
+  top: 50%; /* Position the modal vertically */
+  transform: translate(-50%, -50%); /* Center the modal */
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  max-width: 500px; /* Set maximum width for the modal */
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+/* Add this CSS for the fade animation */
+.fade {
+  animation: fade 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* CSS for the win modal content */
+#win-modal-content,
+#lose-modal-content {
+  position: relative; /* Set position relative for positioning close button */
+  text-align: center; /* Center align the content */
+}
+
+/* CSS for the lose modal title */
+#lose-modal h2 {
+  font-size: 1.8em; /* Increase font size for the title */
+  margin-bottom: 20px; /* Increase margin to separate title from content */
+}
+
+/* CSS for the win modal title */
+#win-modal h2 {
+  font-size: 1.8em; /* Increase font size for the title */
+  margin-bottom: 20px; /* Increase margin to separate title from content */
+}
+
+/* CSS for the win and lose modal close button */
+.win-close,
+.lose-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #aaaaaa;
+}
+
+/* CSS for the win modal percentage sign */
+#win-percentage-sign {
+  font-family: "Neo Sans Pro", sans-serif; /* Ensure the same font */
+  font-size: 2.7em; /* Match font size with score */
+  font-weight: bold; /* Bold font weight */
+  color: #333333; /* Dark text color */
+  margin-left: 5px; /* Add spacing to the left */
+}
+
+/* CSS for the win modal title */
+#win-modal-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* CSS for the win modal time and score */
+#win-time,
+#lose-time {
+  font-style: italic;
+  font-size: 2.7em; /* Slightly bigger font size */
+  font-weight: bold; /* Bold font weight */
+  color: #333333; /* Dark text color */
+  margin-top: 10px; /* Add spacing to the right */
+}
+
+/* CSS for the win modal score */
+#win-score,
+#lose-score {
+  font-style: italic;
+  font-size: 2.7em; /* Increase font size for the score */
+  font-weight: bold; /* Bold font weight */
+  color: #333333; /* Dark text color */
+  margin-top: -10px; /* Adjust top margin */
+}
+
+/* CSS for the modal info */
+.modal-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* CSS for the modal info items */
+.modal-info-item {
+  margin-bottom: 20px; /* Increase margin to separate items */
+  text-align: center; /* Center align the items */
+}
+
+/* CSS for the modal info titles */
+.modal-info-title {
+  font-weight: thin; /* Bold font weight */
+  color: #333333; /* Dark text color */
+  position: relative; /* Enable positioning */
+  top: -30px; /* Move the text up by 10 pixels */
+}
+
+.restart-button {
+  font-family: "NeoSans";
+  margin-top: 30px;
+  padding: 10px 60px;
+  background-color: #3c3d44; /* Blue submit button */
+  color: #ffffff; /* White text color */
+  border: none;
+  cursor: pointer;
+  border-radius: 25px; /* Add rounded corners to button */
+  font-size: 16px; /* Adjust button font size */
+  transition: background-color 0.2s ease-in-out; /* Add transition for hover effect */
+  font-weight: 600; /* Set highest font weight */
+}
+
+.restart-button:hover {
+  background-color: #35363c; /* Darken background on hover */
+  transform: scale(1.05); /* Enlarge slightly on hover */
+  transition: background-color 0.2s ease-out, transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+.restart-button:active {
+  transform: scale(0.95); /* Shrink on click */
+  transition: transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+.restart-button:not(:hover):not(:active) {
+  transform: scale(1); /* Scale down when not hovering or clicking */
+  transition: transform 0.2s ease-out; /* Add ease-out animation */
+}
+
+/* Add this CSS class for red border */
+.input-error {
+  border: 2px solid red !important; /* Important to override other styles */
+}
